@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+Sitemap: https://www.bestcarrentalgoa.com/sitemap.xml
