@@ -1,25 +1,25 @@
-import React, { useState } from 'react'
-import Navbar from './Navbar';
-import Footer from './Footer';
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../../lib/firebase';
-import Head from 'next/head';
+import React, { useState } from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../lib/firebase";
+import Head from "next/head";
 
 const Contactus = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -31,13 +31,16 @@ const Contactus = () => {
     try {
       await addDoc(collection(db, "Enquiries"), {
         ...formData,
-        createdAt: new Date()
+        createdAt: new Date(),
       });
       setSubmitStatus({ success: true, message: "Message sent successfully!" });
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
       console.error("Error submitting form:", error);
-      setSubmitStatus({ success: false, message: "Failed to send message. Please try again." });
+      setSubmitStatus({
+        success: false,
+        message: "Failed to send message. Please try again.",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -46,35 +49,79 @@ const Contactus = () => {
   return (
     <>
       <Head>
-        <title>Contact Us | india Car Rentals | 24/7 Customer Support</title>
-        <meta name="description" content="Get in touch with india Car Rentals for inquiries, bookings, or support. Our team is available to assist you with all your car rental needs in india." />
-        <meta name="keywords" content="contact india Car Rentals, car rental support, india car hire contact, rent a car india, customer service" />
-        <meta property="og:title" content="Contact Us | india Car Rentals" />
-        <meta property="og:description" content="Reach out to our team for car rental inquiries, bookings, and support across all india locations." />
+        <title>
+          Contact Us | Best Cab Rental in Indore with Driver | 24/7 Customer
+          Support
+        </title>
+        <meta
+          name="description"
+          content="Get in touch with Indore Cab Rentals for inquiries, bookings, or support. Our team is available to assist you with all your cab rental needs in Indore with professional drivers."
+        />
+        <meta
+          name="keywords"
+          content="contact Indore Cab Rentals, cab rental support, Indore taxi hire contact, rent a cab Indore, customer service, driver services Indore"
+        />
+        <meta property="og:title" content="Contact Us | Indore Cab Rentals" />
+        <meta
+          property="og:description"
+          content="Reach out to our team for cab rental inquiries, bookings, and support across all Indore locations with experienced drivers."
+        />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.bestcarrentalindia.com/contact-us" />
+        <link
+          rel="canonical"
+          href="https://www.bestcabrentalindore.com/contact-us"
+        />
       </Head>
-      <Navbar/>
-      <div 
-        className="bg-cover h-[300px] lg:h-[550px] mt-10 lg:mt-0 flex items-center bg-center object-cover justify-center bg-black flex-col relative" 
-        style={{backgroundImage: "url('/images/landingbg.png')", objectFit: "cover"}}
+      <Navbar />
+      <div
+        className="bg-cover h-[300px] lg:h-[550px] mt-10 lg:mt-0 flex items-center bg-center object-cover justify-center bg-black flex-col relative"
+        style={{
+          backgroundImage: "url('/images/landingbg.png')",
+          objectFit: "cover",
+        }}
       >
         <div className="absolute inset-0 bg-black/40 backdrop-filter backdrop-blur-[2px]"></div>
         <div className="lg:mt-10 flex items-center justify-center flex-col w-full mt-10">
           <h1 className="text-2xl sm:text-3xl lg:text-5xl text-white relative z-0 mx-auto font-bold font-lora tracking-wider text-center px-4">
             Contact Us
           </h1>
-          <nav className="bg-gray-200/20 rounded-full px-4 sm:px-6 mt-4 z-0 py-2" aria-label="Breadcrumb">
-            <ol className="flex text-center justify-center" itemScope itemType="https://schema.org/BreadcrumbList">
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <a className="text-white text-sm sm:text-base" href="/" itemProp="item"><span itemProp="name">Home</span></a>
+          <nav
+            className="bg-gray-200/20 rounded-full px-4 sm:px-6 mt-4 z-0 py-2"
+            aria-label="Breadcrumb"
+          >
+            <ol
+              className="flex text-center justify-center"
+              itemScope
+              itemType="https://schema.org/BreadcrumbList"
+            >
+              <li
+                itemProp="itemListElement"
+                itemScope
+                itemType="https://schema.org/ListItem"
+              >
+                <a
+                  className="text-white text-sm sm:text-base"
+                  href="/"
+                  itemProp="item"
+                >
+                  <span itemProp="name">Home</span>
+                </a>
                 <meta itemProp="position" content="1" />
               </li>
               <li>
                 <span className="mx-2 text-white font-semibold">&gt;</span>
               </li>
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <span className="text-white font-semibold text-sm sm:text-base" itemProp="name">Contact</span>
+              <li
+                itemProp="itemListElement"
+                itemScope
+                itemType="https://schema.org/ListItem"
+              >
+                <span
+                  className="text-white font-semibold text-sm sm:text-base"
+                  itemProp="name"
+                >
+                  Contact
+                </span>
                 <meta itemProp="position" content="2" />
               </li>
             </ol>
@@ -90,9 +137,12 @@ const Contactus = () => {
                   GET IN TOUCH WITH US
                 </h2>
                 <p className="mb-9 text-sm sm:text-base leading-relaxed">
-                  Welcome to india Car Rentals, your trusted partner in car rentals across india.
-                  We're dedicated to providing reliable vehicles and excellent service for your
-                  travel needs. Our team is here to help you find the perfect car for your india adventure.
+                  Welcome to Indore Cab Rentals, your trusted partner for cab
+                  rentals across Indore with experienced drivers. We're
+                  dedicated to providing reliable vehicles with professional
+                  drivers and excellent service for your travel needs. Our team
+                  is here to help you find the perfect cab with driver for your
+                  Indore journey.
                 </p>
                 <div className="mb-8 flex w-full max-w-[370px]">
                   <div className="mr-6 flex h-[50px] sm:h-[60px] w-full max-w-[50px] sm:max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary/5 text-primary">
@@ -113,10 +163,10 @@ const Contactus = () => {
                   </div>
                   <div className="w-full">
                     <h4 className="mb-1 text-lg sm:text-xl font-bold text-black">
-                      Our Locations
+                      Service Areas
                     </h4>
-                    <p className="text-sm sm:text-base ">locations
-                      {/* <strong>Panaji</strong>, <strong>Calangute</strong>, <strong>Candolim</strong>, <strong>Anjuna</strong>, <strong>Vagator</strong>, <strong>Mapusa</strong>, <strong>Morjim</strong>, <strong>Colva</strong>, <strong>Old india</strong>, <strong>Ponda</strong>, <strong>Baga</strong>, <strong>Arambol</strong>, <strong>Thivim</strong>, <strong>Marindia</strong> */}
+                    <p className="text-sm sm:text-base ">
+                      <strong> 78 Mahaveer nagar,Indore, Madhya Pradesh</strong>
                     </p>
                   </div>
                 </div>
@@ -158,8 +208,11 @@ const Contactus = () => {
                       Phone Number
                     </h4>
                     <p className="text-sm sm:text-base text-body-color dark:text-dark-6">
-                      <a href="tel:+918208563913" aria-label="Call our customer service">
-                        (+91) 3434544355
+                      <a
+                        href="tel:+917312345678"
+                        aria-label="Call our customer service"
+                      >
+                        +91 82360 16165
                       </a>
                     </p>
                   </div>
@@ -187,8 +240,11 @@ const Contactus = () => {
                       Email Address
                     </h4>
                     <p className="text-sm sm:text-base text-body-color dark:text-dark-6">
-                      <a href="mailto:carrental@gmail.com" aria-label="Email our customer service">
-                      p@gmail.com
+                      <a
+                        href="mailto:info@indorecabrental.com"
+                        aria-label="Email our customer service"
+                      >
+                        info@indorecabrental.com
                       </a>
                     </p>
                   </div>
@@ -198,7 +254,13 @@ const Contactus = () => {
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="relative rounded-3xl border-black border-2 bg-white p-8 shadow-lg dark:bg-dark-2 sm:p-12">
                 {submitStatus && (
-                  <div className={`mb-6 p-4 rounded ${submitStatus.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                  <div
+                    className={`mb-6 p-4 rounded ${
+                      submitStatus.success
+                        ? "bg-green-100 text-green-700"
+                        : "bg-red-100 text-red-700"
+                    }`}
+                  >
                     {submitStatus.message}
                   </div>
                 )}
@@ -217,7 +279,7 @@ const Contactus = () => {
                   </div>
                   <div className="mb-6">
                     <input
-                      type="email" 
+                      type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
@@ -1094,13 +1156,9 @@ const Contactus = () => {
           />
         </div>
       </div> */}
-      <Footer/>
+      <Footer />
     </>
   );
 };
 
 export default Contactus;
-
-
-
-

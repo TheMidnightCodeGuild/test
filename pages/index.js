@@ -7,12 +7,15 @@ import Cars from "./components/Cars";
 import About from "./components/About";
 import Choose from "./components/Choose";
 import Loader from "./components/Loader";
+import Services from "./components/Services";
 
 const Index = () => {
   return (
     <div>
       <Head>
-        <title>Best Car Rental in india | Most Affordable Car Hire Services india</title>
+        <title>
+          Best Car Rental in india | Most Affordable Car Hire Services india
+        </title>
         <meta
           name="description"
           content="Best car rental service in india offering luxury & budget cars. Top-rated car hire in North & South india. Book self-drive cars & chauffeur services at lowest prices."
@@ -37,6 +40,7 @@ const Index = () => {
       <Navbar />
       <Landing />
       <About />
+      <Services />
       <Cars />
       <Choose />
       <Footer />

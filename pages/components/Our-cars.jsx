@@ -7,154 +7,104 @@ import { FaGasPump } from "react-icons/fa";
 import { MdAirlineSeatReclineNormal, MdSpeed } from "react-icons/md";
 import Head from "next/head";
 import Link from "next/link";
-import { db } from "@/lib/firebase";
-import { doc, getDoc } from "firebase/firestore";
 
 const Ourcars = () => {
-  const [carPrices, setCarPrices] = useState({
-    balenoAuto: 1600,
-    balenoManual: 1300,
-    swiftAuto: 1600,
-    swiftManual: 1300,
-    i10Auto: 1500,
-    i10Manual: 1200,
-    i20AutoSunRoof: 1700,
-    i20Manual: 1400,
-    ertigaAuto: 2500,
-    ertigaManual: 2200,
-    fortunerAuto: 8000,
-    endeavourAuto: 7000,
-    tharAuto: 4000,
-    tharHardTopAuto: 4000,
-    miniCooper: 20000,
-    audiA4: 12000,
-  });
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchPrices = async () => {
-      try {
-        const docRef = doc(db, "carPrice", "carPrice");
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-          setCarPrices(docSnap.data());
-        }
-        setLoading(false);
-      } catch (err) {
-        console.error("Error fetching prices:", err);
-        setLoading(false);
-      }
-    };
-
-    fetchPrices();
-  }, []);
-
   const carsList = [
     {
       name: "Mini Cooper",
       image: "/images/mini-cooper.png",
       description: "Luxury and style redefined",
-      priceKey: "miniCooper",
       features: ["Automatic", "Premium Interior", "Sunroof"],
     },
     {
       name: "Fortuner (Automatic)",
-      image: "/images/fortuner.png", 
+      image: "/images/fortuner.png",
       description: "Premium SUV experience",
-      priceKey: "fortunerAuto",
       features: ["7 Seater", "4x4 Available", "Premium Interior"],
     },
     {
       name: "Endeavour (Automatic)",
       image: "/images/endeavour.png",
       description: "Luxury SUV for ultimate comfort",
-      priceKey: "endeavourAuto", 
       features: ["7 Seater", "Premium Interior", "Panoramic Sunroof"],
-    },
-    {
-      name: "Thar (Automatic)",
-      image: "/images/tharauto.png",
-      description: "Adventure ready off-roader",
-      priceKey: "tharAuto",
-      features: ["4x4", "Convertible", "Adventure Ready"],
-    },
-    {
-      name: "Thar Hardtop (Automatic)", 
-      image: "/images/tharhardtop.avif",
-      description: "Covered comfort with off-road capability",
-      priceKey: "tharHardTopAuto",
-      features: ["4x4", "Hardtop", "Adventure Ready"],
-    },
-    {
-      name: "Ertiga (Automatic)",
-      image: "/images/ertiga.png",
-      description: "Spacious family MPV",
-      priceKey: "ertigaAuto",
-      features: ["7 Seater", "Spacious", "Family Friendly"],
-    },
-    {
-      name: "Ertiga (Manual)",
-      image: "/images/ertiga.png",
-      description: "Spacious family MPV",
-      priceKey: "ertigaManual",
-      features: ["7 Seater", "Spacious", "Family Friendly"],
-    },
-    {
-      name: "i20 (Manual)",
-      image: "/images/i20m.png",
-      description: "Premium hatchback",
-      priceKey: "i20Manual",
-      features: ["Spacious", "Fuel Efficient", "Premium Interior"],
-    },
-    {
-      name: "i10 (Automatic)",
-      image: "/images/i10.png",
-      description: "Compact and efficient",
-      priceKey: "i10Auto",
-      features: ["City Friendly", "Fuel Efficient", "Easy to Drive"],
-    },
-    {
-      name: "i10 (Manual)",
-      image: "/images/i10.png",
-      description: "Compact and efficient",
-      priceKey: "i10Manual",
-      features: ["City Friendly", "Fuel Efficient", "Easy to Drive"],
     },
     {
       name: "Baleno (Automatic)",
       image: "/images/baleno.png",
       description: "Comfortable premium hatchback",
-      priceKey: "balenoAuto",
-      features: ["Spacious", "Premium Interior", "Automatic"],
+      features: ["5 Seater", "Automatic", "Good Mileage"],
     },
     {
       name: "Baleno (Manual)",
       image: "/images/baleno.png",
       description: "Comfortable premium hatchback",
-      priceKey: "balenoManual",
-      features: ["Spacious", "Premium Interior", "Fuel Efficient"],
+      features: ["5 Seater", "Manual", "Good Mileage"],
     },
     {
       name: "Swift (Automatic)",
       image: "/images/swift.png",
       description: "Sporty and efficient hatchback",
-      priceKey: "swiftAuto",
-      features: ["Sporty", "Fuel Efficient", "Automatic"],
+      features: ["5 Seater", "Automatic", "Good Mileage"],
     },
     {
       name: "Swift (Manual)",
       image: "/images/swift.png",
       description: "Sporty and efficient hatchback",
-      priceKey: "swiftManual",
-      features: ["Sporty", "Fuel Efficient", "Easy to Drive"],
+      features: ["5 Seater", "Manual", "Good Mileage"],
+    },
+    {
+      name: "i10 (Automatic)",
+      image: "/images/i10.png",
+      description: "Compact and efficient",
+      features: ["5 Seater", "Automatic", "Good Mileage"],
+    },
+    {
+      name: "i10 (Manual)",
+      image: "/images/i10.png",
+      description: "Compact and efficient",
+      features: ["5 Seater", "Manual", "Good Mileage"],
+    },
+    {
+      name: "i20 (Sunroofautomatic)",
+      image: "/images/i20auto.png",
+      description: "Premium hatchback with sunroof",
+      features: ["5 Seater", "Automatic", "Sunroof"],
+    },
+    {
+      name: "i20 (Manual)",
+      image: "/images/i20m.png",
+      description: "Premium hatchback",
+      features: ["5 Seater", "Manual", "Good Mileage"],
+    },
+    {
+      name: "Ertiga (Automatic)",
+      image: "/images/ertiga.png",
+      description: "Spacious family MPV",
+      features: ["7 Seater", "Automatic", "Family Car"],
+    },
+    {
+      name: "Ertiga (Manual)",
+      image: "/images/ertiga.png",
+      description: "Spacious family MPV",
+      features: ["7 Seater", "Manual", "Family Car"],
+    },
+    {
+      name: "Thar (Automatic)",
+      image: "/images/tharauto.png",
+      description: "Adventure ready off-roader",
+      features: ["4 Seater", "Automatic", "4x4"],
+    },
+    {
+      name: "Thar Hardtop (Automatic)",
+      image: "/images/tharhardtop.avif",
+      description: "Covered comfort with off-road capability",
+      features: ["4 Seater", "Automatic", "4x4"],
     },
     {
       name: "Audi A4",
       image: "/images/audiA4.png",
       description: "Luxury and style redefined",
-      priceKey: "audiA4",
-      features: ["Luxury", "Automatic", "Premium Interior"],
+      features: ["4 Seater", "Automatic", "Luxury"],
     },
   ];
 
@@ -166,12 +116,24 @@ const Ourcars = () => {
           name="description"
           content="Explore our diverse range of premium vehicles for rent in india. From luxury SUVs to compact city cars, find the perfect ride for your journey."
         />
-        <meta name="keywords" content="car rental india, luxury cars india, car hire india, premium car rental, self drive cars india" />
+        <meta
+          name="keywords"
+          content="car rental india, luxury cars india, car hire india, premium car rental, self drive cars india"
+        />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Our Premium Fleet | Luxury Car Rentals in india" />
-        <meta property="og:description" content="Explore our diverse range of premium vehicles for rent in india. From luxury SUVs to compact city cars, find the perfect ride for your journey." />
+        <meta
+          property="og:title"
+          content="Our Premium Fleet | Luxury Car Rentals in india"
+        />
+        <meta
+          property="og:description"
+          content="Explore our diverse range of premium vehicles for rent in india. From luxury SUVs to compact city cars, find the perfect ride for your journey."
+        />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://bestcarrentalindia.com/components/Our-cars" />
+        <link
+          rel="canonical"
+          href="https://bestcarrentalindia.com/components/Our-cars"
+        />
       </Head>
 
       <header>
@@ -179,7 +141,7 @@ const Ourcars = () => {
       </header>
 
       <main>
-        <section 
+        <section
           className="bg-cover min-h-[300px] lg:min-h-[550px] mt-10 lg:mt-0 flex items-center bg-center object-cover justify-center bg-black flex-col relative w-full"
           style={{
             backgroundImage: "url('/images/landingbg.png')",
@@ -226,89 +188,81 @@ const Ourcars = () => {
 
         <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {loading ? (
-              <div className="flex justify-center items-center h-64">
-                <h1 className="text-xl text-gray-600">
-                  Loading our premium fleet...
-                </h1>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
-                {carsList.map((car, index) => (
-                  <article
-                    key={index}
-                    className="overflow-hidden border border-yellow-600"
-                  >
-                    <div className="relative h-56 sm:h-60 md:h-48 overflow-hidden">
-                      <Image
-                        src={car.image}
-                        alt={`${car.name} - Car Rental in india`}
-                        fill
-                        className="object-cover scale-75"
-                      />
-                      <div className="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-lg">
-                        ₹{carPrices[car.priceKey]}/day
-                      </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+              {carsList.map((car, index) => (
+                <article
+                  key={index}
+                  className="overflow-hidden border border-yellow-600"
+                >
+                  <div className="relative h-56 sm:h-60 md:h-48 overflow-hidden">
+                    <Image
+                      src={car.image}
+                      alt={`${car.name} - Car Rental in india`}
+                      fill
+                      className="object-cover scale-75"
+                    />
+                    <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-lg">
+                      Book Now
                     </div>
-                    <div className="p-6 sm:p-7">
-                      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                        {car.name}
-                      </h2>
-                      <p className="text-gray-600 mb-4">{car.description}</p>
+                  </div>
+                  <div className="p-6 sm:p-7">
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                      {car.name}
+                    </h2>
+                    <p className="text-gray-600 mb-4">{car.description}</p>
 
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {car.features.map((feature, idx) => (
-                          <span
-                            key={idx}
-                            className="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm flex items-center"
-                          >
-                            {idx === 0 && (
-                              <MdAirlineSeatReclineNormal className="mr-1 text-yellow-500" />
-                            )}
-                            {idx === 1 && (
-                              <FaGasPump className="mr-1 text-yellow-500" />
-                            )}
-                            {idx === 2 && (
-                              <MdSpeed className="mr-1 text-yellow-500" />
-                            )}
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="flex justify-between items-center">
-                        <div className="flex gap-2">
-                          <Link
-                            href="tel:+918149563913"
-                            className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-300/30 transform hover:-translate-y-1"
-                            title={`Call to book ${car.name}`}
-                            aria-label={`Call to book ${car.name}`}
-                          >
-                            <BsTelephoneFill size={18} />
-                          </Link>
-                          <Link
-                            href="https://wa.me/918149563913"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-green-600 text-white p-3 rounded-full hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-green-300/30 transform hover:-translate-y-1"
-                            title={`WhatsApp to book ${car.name}`}
-                            aria-label={`WhatsApp to book ${car.name}`}
-                          >
-                            <BsWhatsapp size={18} />
-                          </Link>
-                        </div>
-                        <div
-                          className="bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold shadow-xl"
-                          aria-label={`${car.name} rental price per day`}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {car.features.map((feature, idx) => (
+                        <span
+                          key={idx}
+                          className="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm flex items-center"
                         >
-                          ₹{carPrices[car.priceKey]}/day
-                        </div>
+                          {idx === 0 && (
+                            <MdAirlineSeatReclineNormal className="mr-1 text-yellow-500" />
+                          )}
+                          {idx === 1 && (
+                            <FaGasPump className="mr-1 text-yellow-500" />
+                          )}
+                          {idx === 2 && (
+                            <MdSpeed className="mr-1 text-yellow-500" />
+                          )}
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex justify-between items-center">
+                      <div className="flex gap-2">
+                        <Link
+                          href="tel:+918149563913"
+                          className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-300/30 transform hover:-translate-y-1"
+                          title={`Call to book ${car.name}`}
+                          aria-label={`Call to book ${car.name}`}
+                        >
+                          <BsTelephoneFill size={18} />
+                        </Link>
+                        <Link
+                          href="https://wa.me/918149563913"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-green-600 text-white p-3 rounded-full hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-green-300/30 transform hover:-translate-y-1"
+                          title={`WhatsApp to book ${car.name}`}
+                          aria-label={`WhatsApp to book ${car.name}`}
+                        >
+                          <BsWhatsapp size={18} />
+                        </Link>
+                      </div>
+                      <div
+                        className="bg-green-500 text-white px-6 py-3 rounded-full font-semibold shadow-xl"
+                        aria-label={`WhatsApp booking for ${car.name}`}
+                      >
+                        WhatsApp Now
                       </div>
                     </div>
-                  </article>
-                ))}
-              </div>
-            )}
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       </main>

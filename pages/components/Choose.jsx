@@ -11,7 +11,8 @@ const Choose = () => {
             Why Choose <span className="text-yellow-500">Us?</span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
-            Experience the <strong>best car rental service in india</strong> with our premium fleet and exceptional customer service.
+            Experience the <strong>best cab rental service in india</strong>{" "}
+            with our professional drivers and premium vehicles.
           </p>
         </header>
 
@@ -31,7 +32,8 @@ const Choose = () => {
               Quality Fleet
             </h3>
             <p className="text-sm sm:text-base text-gray-600">
-              Well-maintained vehicles that undergo regular inspections to ensure your safety and comfort.
+              Well-maintained vehicles with professional drivers to ensure your
+              safety and comfortable journey.
             </p>
           </article>
 
@@ -49,7 +51,8 @@ const Choose = () => {
               24/7 Support
             </h3>
             <p className="text-sm sm:text-base text-gray-600">
-              Round-the-clock customer service to assist you with any queries or roadside assistance.
+              Round-the-clock customer service to assist you with bookings,
+              queries or emergency support.
             </p>
           </article>
 
@@ -67,7 +70,8 @@ const Choose = () => {
               Competitive Pricing
             </h3>
             <p className="text-sm sm:text-base text-gray-600">
-              Best rates in india with transparent pricing and no hidden charges.
+              Best cab rates in india with transparent pricing and no hidden
+              charges for driver or vehicle.
             </p>
           </article>
 
@@ -76,16 +80,17 @@ const Choose = () => {
             <figure className="w-10 h-10 sm:w-16 sm:h-12 relative mb-3 sm:mb-4">
               <Image
                 src="/images/flexible.png"
-                alt="Flexible Rentals"
+                alt="Professional Drivers"
                 fill
                 className="object-contain"
               />
             </figure>
             <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-              Flexible Rentals
+              Professional Drivers
             </h3>
             <p className="text-sm sm:text-base text-gray-600">
-              Choose from hourly, daily, or weekly rentals with easy pickup and drop-off options.
+              Experienced and licensed drivers who know local routes and provide
+              safe, comfortable rides.
             </p>
           </article>
 
@@ -103,7 +108,8 @@ const Choose = () => {
               Full Insurance
             </h3>
             <p className="text-sm sm:text-base text-gray-600">
-              Comprehensive insurance coverage for peace of mind during your journey.
+              Comprehensive insurance coverage for passengers and vehicles for
+              complete peace of mind.
             </p>
           </article>
 
@@ -112,16 +118,17 @@ const Choose = () => {
             <figure className="w-10 h-10 sm:w-16 sm:h-12 relative mb-3 sm:mb-4">
               <Image
                 src="/images/location.png"
-                alt="Multiple Locations"
+                alt="Wide Coverage"
                 fill
                 className="object-contain"
               />
             </figure>
             <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-              Multiple Locations
+              Wide Coverage
             </h3>
             <p className="text-sm sm:text-base text-gray-600">
-              Convenient pickup and drop-off points across major locations in india.
+              Cab service available across major cities and routes in india with
+              door-to-door pickup.
             </p>
           </article>
         </main>

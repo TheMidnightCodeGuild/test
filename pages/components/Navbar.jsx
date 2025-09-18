@@ -34,27 +34,37 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 w-full z-50">
-      <nav className="bg-[#FFBF00] py-2 border-4 border-white" aria-label="Main navigation">
+      <nav
+        className="bg-[#FFBF00] py-2 border-4 border-white"
+        aria-label="Main navigation"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
+          <div className="flex justify-between items-center h-16 sm:h-24">
             <Link href="/" className="flex items-center" aria-label="Home">
-              {/* <Image
+              <Image
                 src="/images/logo.png"
                 alt="Best Car Rental Service in india"
                 width={130}
                 height={40}
-                className="h-12 w-auto sm:h-24"
+                className="h-12 w-auto sm:h-28"
                 priority
-              /> */}
-              <h1>your logo</h1>
+              />
+              {/* <h1>your logo</h1> */}
             </Link>
             <h1 className="text-yellow-900 hover:text-white px-3 py-2 text-lg md:text-4xl font-bold relative group transition-colors duration-300 tracking-wide">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-800 to-yellow-950">Best Car Rental india</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-800 to-yellow-950">
+                {" "}
+                Indore Prime Tour{" "}
+              </span>
               <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-yellow-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </h1>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Desktop menu">
+            <div
+              className="hidden md:flex items-center space-x-8"
+              role="navigation"
+              aria-label="Desktop menu"
+            >
               <Link
                 href="/"
                 className="text-yellow-900 hover:text-white px-3 py-2 text-sm font-semibold relative group"
@@ -155,7 +165,11 @@ const Navbar = () => {
         >
           <div className="pt-5 pb-6 px-4">
             <div className="flex items-center justify-between mb-6">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} aria-label="Home">
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Home"
+              >
                 <Image
                   src="/images/logo.png"
                   alt="Best Car Rental Service in india"
