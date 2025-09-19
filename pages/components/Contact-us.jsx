@@ -29,7 +29,7 @@ const Contactus = () => {
     setSubmitStatus(null);
 
     try {
-      await addDoc(collection(db, "Enquiries"), {
+      await addDoc(collection(db, "enquiries"), {
         ...formData,
         createdAt: new Date(),
       });
